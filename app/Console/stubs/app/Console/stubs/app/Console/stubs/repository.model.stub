@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\{{model}};
+use App\Repositories\Contracts\{{model}}RepositoryInterface;
+use Illuminate\Http\Request;
+
+class {{model}}Repository extends BaseRepository implements {{model}}RepositoryInterface
+{
+    /**
+     * @return string
+     */
+    public function getModelName(): string
+    {
+        return {{model}}::class;
+    }
+}
