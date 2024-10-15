@@ -26,6 +26,7 @@ class CardFactory extends Factory
             'account_id' => Account::factory(),
             'card_type' => $cardType,
             'card_number' => $this->generateCardNumber(),
+            'balance' => fake()->numberBetween(1000, 100000000),
         ];
     }
 

@@ -26,7 +26,6 @@ class AccountFactory extends Factory
             'user_id' => User::factory(),
             'bank_name' => $bankName,
             'account_number' => $this->generateAccountNumber($bankName),
-            'balance' => fake()->numberBetween(1000, 100000000),
         ];
     }
 

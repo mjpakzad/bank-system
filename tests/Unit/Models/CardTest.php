@@ -18,7 +18,7 @@ class CardTest extends TestCase
     {
         $this->assertTrue(Schema::hasColumns('cards', [
             'id', 'account_id', 'card_type', 'card_number',
-            'created_at', 'updated_at',
+            'balance', 'created_at', 'updated_at',
         ]), 1);
     }
 

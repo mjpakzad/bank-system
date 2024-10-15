@@ -16,7 +16,6 @@ class Account extends Model
         'user_id',
         'bank_name',
         'account_number',
-        'balance',
     ];
 
     /**
@@ -25,7 +24,6 @@ class Account extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'balance' => 'integer',
         'bank_name' => BankName::class,
     ];
 

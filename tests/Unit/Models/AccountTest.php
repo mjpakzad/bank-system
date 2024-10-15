@@ -19,7 +19,7 @@ class AccountTest extends TestCase
     public function accounts_table_has_expected_columns()
     {
         $this->assertTrue(Schema::hasColumns('accounts', [
-            'id', 'user_id', 'bank_name', 'account_number', 'balance',
+            'id', 'user_id', 'bank_name', 'account_number',
             'created_at', 'updated_at',
         ]), 1);
     }
