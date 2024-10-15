@@ -1,0 +1,75 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: bank-app
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+        networks:
+            - bank-net
+        depends_on:
+            - db
+            - redis
+
+    webserver:
+        image: nginx:latest
+        container_name: bank-webserver
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx:/etc/nginx/conf.d
+        networks:
+            - bank-net
+        depends_on:
+            -   app
+
+    db:
+        image: mysql:8.0
+        container_name: bank-db
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - dbdata:/var/lib/mysql
+        networks:
+            - bank-net
+
+    redis:
+        image: redis:alpine
+        container_name: bank-redis
+        restart: unless-stopped
+        ports:
+            - "6379:6379"
+        networks:
+            - bank-net
+
+    queue:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: bank-queue
+        restart: unless-stopped
+        working_dir: /var/www
+        command: php artisan queue:work --sleep=3 --tries=3
+        volumes:
+            -   ./:/var/www
+        networks:
+            - bank-net
+        depends_on:
+            - app
+            - redis
+
+networks:
+    bank-net:
+        driver: bridge
+
+volumes:
+    dbdata:
