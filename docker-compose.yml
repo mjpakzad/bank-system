@@ -19,7 +19,7 @@ services:
         container_name: bank-webserver
         restart: unless-stopped
         ports:
-            - "80:80"
+            - '80:80'
         volumes:
             - ./:/var/www
             - ./docker/nginx:/etc/nginx/conf.d
@@ -47,7 +47,7 @@ services:
         container_name: bank-redis
         restart: unless-stopped
         ports:
-            - "6379:6379"
+            - '6379:6379'
         networks:
             - bank-net
 
@@ -58,7 +58,7 @@ services:
         container_name: bank-queue
         restart: unless-stopped
         working_dir: /var/www
-        command: php artisan queue:work --sleep=3 --tries=3
+        command: php artisan horizon
         volumes:
             -   ./:/var/www
         networks:
