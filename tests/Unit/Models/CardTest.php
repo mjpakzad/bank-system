@@ -4,14 +4,14 @@ namespace Tests\Unit\Models;
 
 use App\Models\Account;
 use App\Models\Card;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Schema;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class CardTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     #[Test]
     public function cards_table_has_expected_columns()

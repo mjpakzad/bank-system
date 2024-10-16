@@ -4,7 +4,7 @@ namespace Tests\Unit\Models;
 
 use App\Models\Card;
 use App\Models\Transaction;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Schema;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -12,7 +12,7 @@ use Tests\TestCase;
 
 class TransactionTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     #[Test]
     public function transactions_table_has_expected_columns()
