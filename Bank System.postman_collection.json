@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "992176df-c447-4562-8cba-e5dd33b0762d",
+		"name": "Bank System",
+		"description": "Minikala is a new brand marketplace based in Tehran.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22832309"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Top most money transferer users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/top-users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"top-users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Transfer money",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "from_card",
+									"value": "6273811234567890",
+									"type": "text"
+								},
+								{
+									"key": "to_card",
+									"value": "5022291234567890",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "41000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/transfer",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api/v{{api_version}}",
+			"type": "string"
+		},
+		{
+			"key": "user_token",
+			"value": "1|faxzaI1YfvOAaSa44dJoS57vba2cRMXfkZxprnLAdf9f1b8e",
+			"type": "string"
+		},
+		{
+			"key": "api_version",
+			"value": "6",
+			"type": "string"
+		}
+	]
+}
