@@ -52,7 +52,7 @@ make artisan migrate
 ```
 7. **Run Composer Commands**
 ```
-make composer require package/name
+make composer require vendor/package-name
 ```
 8. **View Logs**
 ```
@@ -61,7 +61,7 @@ make logs
 ### Without Using the Makefile
 1. **Clone the Repository**
 ```
-git clone https://github.com/yourusername/bank-system.git
+git clone https://github.com/mjpakzad/bank-system.git
 cd bank-system
 ```
 2. **Copy the ```.env``` File**
